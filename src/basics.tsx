@@ -31,7 +31,7 @@ const containerVariants = {
 
 
 
-export default function Basics(props: { containerVar: boolean | AnimationControls | TargetAndTransition | VariantLabels | undefined; blockVar: boolean | AnimationControls | TargetAndTransition | VariantLabels | undefined; }) {
+export default function Basics(props: { containerVar: boolean | AnimationControls | TargetAndTransition | VariantLabels | undefined; blockVar: boolean | AnimationControls | TargetAndTransition | VariantLabels | undefined; cycleFunc: React.MouseEventHandler<HTMLDivElement> | undefined; }) {
     return (
         <motion.div id='animContainer' variants={containerVariants} animate={props.containerVar}>
             <motion.div
@@ -40,7 +40,7 @@ export default function Basics(props: { containerVar: boolean | AnimationControl
                 // whileHover={{ scale: 1.5, rotate: 0, borderRadius: '0%', backgroundColor: '#fff' }}
                 transition={{ duration: 2, repeat: Infinity, repeatType: 'mirror', ease: 'anticipate' }}
             />
-            <motion.div variants={blockVariants} className='animBlock' animate={props.blockVar} />
+            <motion.div variants={blockVariants} className='animBlock' animate={props.blockVar} onClick={props.cycleFunc} />
         </motion.div>
     );
 }

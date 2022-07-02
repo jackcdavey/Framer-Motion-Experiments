@@ -26,7 +26,7 @@ function App() {
   return (
     <>
       <motion.div variants={toggleVariants} animate={containerHidden} id='toggleBtn' onClick={() => setContainerHidden()} />
-      <Basics containerVar={containerHidden} blockVar={isActive} />
+      <Basics containerVar={containerHidden} blockVar={isActive} cycleFunc={() => cycle()} />
     </>
   );
 }
