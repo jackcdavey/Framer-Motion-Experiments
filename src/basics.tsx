@@ -7,6 +7,7 @@ const blockVariants = {
         backgroundColor: "#f00",
         borderRadius: "50%",
         transition: { duration: 0.5 }
+
     },
     inactive: {
         backgroundColor: "#fff",
@@ -16,8 +17,12 @@ const blockVariants = {
 
 const containerVariants = {
     hidden: {
-        scale: 0,
-        opacity: 0,
+        scale: 0.05,
+        opacity: 0.5,
+        translateX: '-45%',
+        translateY: '-45%',
+        backgroundColor: '#00ff00',
+        borderRadius: "50%",
         transition: { duration: 0.5 }
     },
     visible: {
@@ -37,7 +42,7 @@ export default function Basics(props: { containerVar: boolean | AnimationControl
             <motion.div
                 className='animBlock'
                 animate={{ rotate: 360, borderRadius: '50%', backgroundColor: '#f00' }}
-                // whileHover={{ scale: 1.5, rotate: 0, borderRadius: '0%', backgroundColor: '#fff' }}
+                whileHover={{ scale: 1.5, rotate: 0, borderRadius: '0%', backgroundColor: '#fff' }}
                 transition={{ duration: 2, repeat: Infinity, repeatType: 'mirror', ease: 'anticipate' }}
             />
             <motion.div variants={blockVariants} className='animBlock' animate={props.blockVar} onClick={props.cycleFunc} />
